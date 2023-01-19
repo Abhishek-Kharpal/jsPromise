@@ -38,10 +38,12 @@ let filesReader = ()=>{
 
 customFileReader('A.txt').then(val=>{
   console.log(val);
-  customFileReader('B.txt').then(val=>{
+  return customFileReader('B.txt');
+})
+  .then(val=>{
     console.log(val);
-    customFileReader('C.txt').then(val=>{
-      console.log(val);
-    });
+    return customFileReader('C.txt');
+  })
+  .then(val=>{
+    console.log(val);
   });
-});
